@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 //import logo from "./logo.svg";
-import { MapContainer, TileLayer } from "react-leaflet";
+import { MapContainer, TileLayer, Rectangle } from "react-leaflet";
 import { OpenStreetMapProvider } from "leaflet-geosearch";
 import "./App.css";
 
 function App() {
+  var zoom = 2;
+
   const initialState = {
     xAxis: 55.676098,
     yAxis: 12.568337,
@@ -20,11 +22,7 @@ function App() {
   //const handleInput = (evt) => {};
 
   const handleSubmit = (evt) => {
-    const target = evt.target;
-    const id = target.id;
-    const value = target.value;
-
-    console.log(value);
+    //console.log(value);
     console.log("hej1");
 
     const provider = new OpenStreetMapProvider();
@@ -34,12 +32,43 @@ function App() {
     place.yAxis = results.y;
 
     console.log("x-koordinat" + results.x);
+  };
+
+  const handleInput = (evt) => {
+    const target = evt.target;
+    const id = target.id;
+    const value = target.value;
 
     place[id] = value;
     setPlace({ ...place });
   };
 
-  var marker = L.marker([51.5, -0.09]).addTo(mymap);
+  //var marker = L.marker([51.5, -0.09]).addTo(mymap);
+
+  //var L = window.L;
+  //var mymap = L.map("mapid").setView([51.505, -0.09], 13);
+
+  const rectangle1 = [
+    [55.667, 12.59],
+    [55.679, 12.568336],
+  ];
+
+  const rectangle2 = [
+    [55.667, 12.59],
+    [55.679, 12.568336],
+  ];
+
+  const rectangle3 = [
+    [55.667, 12.59],
+    [55.679, 12.568336],
+  ];
+
+  const rectangle4 = [
+    [55.667, 12.59],
+    [55.679, 12.568336],
+  ];
+
+  const purpleOptions = { color: "purple" };
 
   return (
     <div>
@@ -55,27 +84,26 @@ function App() {
         crossorigin=""
       ></script>
 
-      <div id="mapid">
-        <MapContainer
-          className="markercluster-map"
-          center={[place.xAxis, place.yAxis]}
-          zoom={initialState.zoom}
-          maxZoom={initialState.maxZoom}
-        >
-          <TileLayer
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            //attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-          />
-        </MapContainer>
+      <MapContainer
+        className="markercluster-map"
+        center={[place.xAxis, place.yAxis]}
+        zoom={initialState.zoom}
+        maxZoom={initialState.maxZoom}
+      >
+        <TileLayer
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          //attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        />
 
-        <div style={{ marginTop: 25 }}>
-          <form onSubmit={handleSubmit}>
-            <input id="position" type="text" value={place.position} />
-            <br />
+        <Rectangle bounds={rectangle1} pathOptions={purpleOptions} />
+      </MapContainer>
 
-            <button>Submit</button>
-          </form>
-        </div>
+      <div style={{ marginTop: 25 }}>
+        <form onSubmit={handleSubmit} onChange={handleInput}>
+          <input id="position" type="text" value={place.position} />
+          <br />
+          <button>Submit</button>
+        </form>
       </div>
     </div>
   );
