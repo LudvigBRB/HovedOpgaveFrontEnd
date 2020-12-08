@@ -5,7 +5,7 @@ import { OpenStreetMapProvider } from "leaflet-geosearch";
 import "./App.css";
 
 function App() {
-  var zoom = 2;
+  //var zoom = 2;
 
   const initialState = {
     xAxis: 55.676098,
@@ -13,11 +13,13 @@ function App() {
     zoom: 12,
     maxZoom: 18,
     position: "",
+    width: 1000,
+    height: 10000,
   };
 
-  console.log("qiefwnewfin");
-
   const [place, setPlace] = useState(initialState);
+
+  console.log(place.zoom);
 
   //const handleInput = (evt) => {};
 
@@ -54,18 +56,18 @@ function App() {
   ];
 
   const rectangle2 = [
-    [55.667, 12.59],
-    [55.679, 12.568336],
+    [55.697, 12.6],
+    [55.699, 12.568736],
   ];
 
   const rectangle3 = [
-    [55.667, 12.59],
-    [55.679, 12.568336],
+    [55.767, 12.59],
+    [55.979, 12.568336],
   ];
 
   const rectangle4 = [
-    [55.667, 12.59],
-    [55.679, 12.568336],
+    [55.627, 12.59],
+    [55.639, 12.568336],
   ];
 
   const purpleOptions = { color: "purple" };
@@ -84,25 +86,33 @@ function App() {
         crossorigin=""
       ></script>
 
-      <MapContainer
-        className="markercluster-map"
-        center={[place.xAxis, place.yAxis]}
-        zoom={initialState.zoom}
-        maxZoom={initialState.maxZoom}
-      >
-        <TileLayer
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          //attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        />
+      <div class="map-container">
+        <MapContainer
+          className="markercluster-map"
+          center={[place.xAxis, place.yAxis]}
+          zoom={place.zoom}
+          maxZoom={place.maxZoom}
+          style={({ height: place.height }, { width: place.width })}
+          //style={({ height: 1000 }, { width: 1000 })}
+        >
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            //attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          />
 
-        <Rectangle bounds={rectangle1} pathOptions={purpleOptions} />
-      </MapContainer>
+          <Rectangle bounds={rectangle1} pathOptions={purpleOptions} />
+          <Rectangle bounds={rectangle2} pathOptions={purpleOptions} />
+          <Rectangle bounds={rectangle3} pathOptions={purpleOptions} />
+          <Rectangle bounds={rectangle4} pathOptions={purpleOptions} />
+        </MapContainer>
+      </div>
 
       <div style={{ marginTop: 25 }}>
         <form onSubmit={handleSubmit} onChange={handleInput}>
           <input id="position" type="text" value={place.position} />
           <br />
           <button>Submit</button>
+          <p>{JSON.stringify(place)}</p>
         </form>
       </div>
     </div>
