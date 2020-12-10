@@ -51,7 +51,7 @@ function ScreenShot() {
 
   return (
     <div>
-      <button id="button1" oncontextmenu="event.preventDefault();">
+      <button id="button1" onContextMenu="event.preventDefault();">
         Click here with your mouse...
       </button>
       <button id="button2" oncontextmenu="event.preventDefault();">

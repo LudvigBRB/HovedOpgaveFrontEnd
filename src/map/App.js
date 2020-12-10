@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Component, useState } from "react";
 //import logo from "./logo.svg";
 import { MapContainer, TileLayer, Rectangle } from "react-leaflet";
 import { OpenStreetMapProvider } from "leaflet-geosearch";
@@ -24,6 +24,7 @@ function App() {
   //const handleInput = (evt) => {};
 
   const handleSubmit = (evt) => {
+    evt.preventDefault();
     //console.log(value);
     console.log("hej1");
 
@@ -45,6 +46,25 @@ function App() {
     setPlace({ ...place });
   };
 
+  const changeTileSizeUp = (evt) => {
+    evt.preventDefault();
+
+    handleClick(){
+      place.width = 500;
+      setPlace(place);
+    }
+    
+    //console.log(place.width);
+  };
+
+  const changeTileSizeDown = (evt) => {
+    evt.preventDefault();
+
+    place.width = 1000;
+    setPlace(place);
+    //console.log(place.width);
+  };
+
   //var marker = L.marker([51.5, -0.09]).addTo(mymap);
 
   //var L = window.L;
@@ -54,22 +74,18 @@ function App() {
     [55.667, 12.59],
     [55.679, 12.568336],
   ];
-
   const rectangle2 = [
     [55.697, 12.6],
     [55.699, 12.568736],
   ];
-
   const rectangle3 = [
     [55.767, 12.59],
     [55.979, 12.568336],
   ];
-
   const rectangle4 = [
     [55.627, 12.59],
     [55.639, 12.568336],
   ];
-
   const purpleOptions = { color: "purple" };
 
   return (
@@ -78,15 +94,26 @@ function App() {
         rel="stylesheet"
         href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
         integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-        crossorigin=""
+        crossOrigin=""
       />
+
       <script
         src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
         integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-        crossorigin=""
+        crossOrigin=""
       ></script>
 
-      <div class="map-container">
+      <div>
+        <form onClick={changeTileSizeUp}>
+          <button>Change map size</button>
+        </form>
+
+        <form onClick={changeTileSizeDown}>
+          <button>Change map size</button>
+        </form>
+      </div>
+
+      <div className="map-container">
         <MapContainer
           className="markercluster-map"
           center={[place.xAxis, place.yAxis]}
@@ -108,10 +135,15 @@ function App() {
       </div>
 
       <div style={{ marginTop: 25 }}>
-        <form onSubmit={handleSubmit} onChange={handleInput}>
-          <input id="position" type="text" value={place.position} />
+        <form>
+          <input
+            id="position"
+            type="text"
+            value={place.position}
+            onChange={handleInput}
+          />
           <br />
-          <button>Submit</button>
+          <button onSubmit={handleSubmit}>Submit</button>
           <p>{JSON.stringify(place)}</p>
         </form>
       </div>
