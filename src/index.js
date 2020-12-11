@@ -20,10 +20,11 @@ import * as serviceWorker from "./serviceWorker";
 
 //ReactDOM.render(<App />, document.getElementById("root"));
 
+//<ScreenShot />
+
 const target = document.querySelector("#root");
 ReactDOM.render(
   <React.StrictMode>
-    <ScreenShot />
     <App />
   </React.StrictMode>,
   target

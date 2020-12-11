@@ -47,13 +47,13 @@ function App() {
   };
 
   const changeTileSizeUp = (evt) => {
+    //const target = evt.target;
+    //const id = target.id;
+    //const value = target.value;
     evt.preventDefault();
 
-    handleClick(){
-      place.width = 500;
-      setPlace(place);
-    }
-    
+    place.width = 500;
+    setPlace({ ...place });
     //console.log(place.width);
   };
 
@@ -61,7 +61,7 @@ function App() {
     evt.preventDefault();
 
     place.width = 1000;
-    setPlace(place);
+    setPlace({ ...place });
     //console.log(place.width);
   };
 
@@ -104,13 +104,9 @@ function App() {
       ></script>
 
       <div>
-        <form onClick={changeTileSizeUp}>
-          <button>Change map size</button>
-        </form>
+        <button onClick={changeTileSizeUp}>Small map</button>
 
-        <form onClick={changeTileSizeDown}>
-          <button>Change map size</button>
-        </form>
+        <button onClick={changeTileSizeDown}>Large map</button>
       </div>
 
       <div className="map-container">
@@ -144,11 +140,10 @@ function App() {
           />
           <br />
           <button onSubmit={handleSubmit}>Submit</button>
-          <p>{JSON.stringify(place)}</p>
         </form>
       </div>
     </div>
-  );
+  ); //<p>{JSON.stringify(place)}</p>
 }
 
 export default App;
