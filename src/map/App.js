@@ -2,6 +2,7 @@ import React, { Component, useState } from "react";
 //import logo from "./logo.svg";
 import { MapContainer, TileLayer, Rectangle } from "react-leaflet";
 import { OpenStreetMapProvider } from "leaflet-geosearch";
+import Search from "./Search";
 import "./App.css";
 
 function App() {
@@ -127,6 +128,7 @@ function App() {
           <Rectangle bounds={rectangle2} pathOptions={purpleOptions} />
           <Rectangle bounds={rectangle3} pathOptions={purpleOptions} />
           <Rectangle bounds={rectangle4} pathOptions={purpleOptions} />
+          <Search />
         </MapContainer>
       </div>
 
