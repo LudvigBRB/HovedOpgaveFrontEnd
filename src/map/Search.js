@@ -1,5 +1,5 @@
 import { Component } from "react";
-import L from "leaflet";
+import { L } from "leaflet";
 import * as ELG from "esri-leaflet-geocoder";
 import { withLeaflet } from "react-leaflet";
 
