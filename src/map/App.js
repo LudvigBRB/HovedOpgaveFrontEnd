@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 //import logo from "./logo.svg";
-import { Map, TileLayer, Rectangle } from "react-leaflet";
+import { MapContainer, TileLayer, Rectangle } from "react-leaflet";
 //import L from "leaflet";
 import { OpenStreetMapProvider } from "leaflet-geosearch";
 import Search from "./Search";
@@ -112,7 +112,7 @@ function App() {
       </div>
 
       <div className="map-container">
-        <Map
+        <MapContainer
           className="markercluster-map"
           center={[place.xAxis, place.yAxis]}
           zoom={place.zoom}
@@ -124,13 +124,13 @@ function App() {
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             //attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           />
+          <Search />
 
           <Rectangle bounds={rectangle1} pathOptions={purpleOptions} />
           <Rectangle bounds={rectangle2} pathOptions={purpleOptions} />
           <Rectangle bounds={rectangle3} pathOptions={purpleOptions} />
           <Rectangle bounds={rectangle4} pathOptions={purpleOptions} />
-          <Search />
-        </Map>
+        </MapContainer>
       </div>
 
       <div style={{ marginTop: 25 }}>

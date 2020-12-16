@@ -4,7 +4,8 @@ import "./index.css";
 import App from "./map/App";
 //import ScreenShot from "./map/ScreenShot";
 import * as serviceWorker from "./serviceWorker";
-//import MapComp from "./map/Map";
+//import MapComp from "./map/MapComp";
+import Search from "./map/Search";
 //import Function from "./functions";
 //import apiFacade from "./apiFacade";
 
@@ -26,7 +27,7 @@ import * as serviceWorker from "./serviceWorker";
 const target = document.querySelector("#root");
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Search />
   </React.StrictMode>,
   target
 );

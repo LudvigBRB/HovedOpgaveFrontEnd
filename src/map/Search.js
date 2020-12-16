@@ -1,4 +1,4 @@
-/*import { Component } from "react";
+import { Component } from "react";
 import { L } from "leaflet";
 import * as ELG from "esri-leaflet-geocoder";
 import { withLeaflet } from "react-leaflet";
@@ -23,4 +23,3 @@ class Search extends Component {
 }
 
 export default withLeaflet(Search);
-*/
