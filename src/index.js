@@ -2,8 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./map/App";
-import ScreenShot from "./map/ScreenShot";
+//import ScreenShot from "./map/ScreenShot";
 import * as serviceWorker from "./serviceWorker";
+//import MapComp from "./map/Map";
 //import Function from "./functions";
 //import apiFacade from "./apiFacade";
 
@@ -18,9 +19,9 @@ import * as serviceWorker from "./serviceWorker";
 //const element = <h1> Heja dig</h1>;
 //ved rendering eksistere det i DOM
 
-//ReactDOM.render(<App />, document.getElementById("root"));
+//ReactDOM.render(<Map />, rootElement);
 
-//<ScreenShot />
+//<ScreenShot /><MapComp />
 
 const target = document.querySelector("#root");
 ReactDOM.render(

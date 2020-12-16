@@ -1,6 +1,7 @@
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 //import logo from "./logo.svg";
-import { MapContainer, TileLayer, Rectangle } from "react-leaflet";
+import { Map, TileLayer, Rectangle } from "react-leaflet";
+//import L from "leaflet";
 import { OpenStreetMapProvider } from "leaflet-geosearch";
 import Search from "./Search";
 import "./App.css";
@@ -111,7 +112,7 @@ function App() {
       </div>
 
       <div className="map-container">
-        <MapContainer
+        <Map
           className="markercluster-map"
           center={[place.xAxis, place.yAxis]}
           zoom={place.zoom}
@@ -129,7 +130,7 @@ function App() {
           <Rectangle bounds={rectangle3} pathOptions={purpleOptions} />
           <Rectangle bounds={rectangle4} pathOptions={purpleOptions} />
           <Search />
-        </MapContainer>
+        </Map>
       </div>
 
       <div style={{ marginTop: 25 }}>
