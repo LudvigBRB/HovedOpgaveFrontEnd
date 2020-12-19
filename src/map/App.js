@@ -25,7 +25,7 @@ function App() {
 
   //const handleInput = (evt) => {};
 
-  const handleSubmit = (evt) => {
+  /*const handleSubmit = (evt) => {
     evt.preventDefault();
     //console.log(value);
     console.log("hej1");
@@ -37,6 +37,7 @@ function App() {
     place.yAxis = results.y;
 
     console.log("x-koordinat" + results.x);
+    console.log("x-koordinat" + results.y);
   };
 
   const handleInput = (evt) => {
@@ -46,7 +47,19 @@ function App() {
 
     place[id] = value;
     setPlace({ ...place });
-  };
+  };*/
+
+  const provider = new OpenStreetMapProvider();
+
+  const form = document.querySelector("form");
+  const input = form.querySelector('input[type="text"]');
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const results = await provider.search({ query: input.value });
+    console.log(results); // » [{}, {}, {}, ...]
+  });
 
   const changeTileSizeUp = (evt) => {
     //const target = evt.target;

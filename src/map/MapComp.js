@@ -1,7 +1,7 @@
-/*import React, { Component } from "react";
+import React, { Component } from "react";
 import L from "leaflet";
 import * as ELG from "esri-leaflet-geocoder";
-import { Map, TileLayer, MapContainer } from "react-leaflet";
+import { Map, MapContainer, TileLayer } from "react-leaflet";
 import "./Map.css";
 
 // import marker icons
@@ -16,7 +16,7 @@ L.Icon.Default.mergeOptions({
 
 class MapComp extends Component {
   componentDidMount() {
-    const map = this.leafletMap.leafletElement;
+    const map = this.leafletMapContainer.leafletElement;
     const searchControl = new ELG.Geosearch().addTo(map);
     const results = new L.LayerGroup().addTo(map);
 
@@ -36,7 +36,7 @@ class MapComp extends Component {
         center={center}
         zoom="10"
         ref={(m) => {
-          this.leafletMap = m;
+          this.leafletMapContainer = m;
         }}
       >
         <TileLayer
@@ -50,4 +50,3 @@ class MapComp extends Component {
 }
 
 export default MapComp;
-*/
