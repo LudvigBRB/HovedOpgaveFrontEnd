@@ -25,7 +25,7 @@ function App() {
 
   //const handleInput = (evt) => {};
 
-  const handleSubmit = (evt) => {
+  const handleSubmit = async (evt) => {
     evt.preventDefault();
 
     console.log("from handleSubmit");
@@ -35,7 +35,9 @@ function App() {
     const value = target.value;
 
     const provider = new OpenStreetMapProvider();
-    const results = provider.search({ query: "Virum" });
+    const results = await provider.search({ query: "Virum" });
+
+    console.log("result is " + results);
 
     console.log("x-koordinat" + results.x);
     console.log("y-koordinat" + results.y);
@@ -46,15 +48,7 @@ function App() {
     place[id] = value;
     setPlace({ ...place });
 
-    /*
-    const target = evt.target;
-    const id = target.id;
-    const value = target.value;*/
-    //console.log(value);
     console.log("hej1");
-
-    //console.log("x-koordinat" + results.x);
-    //console.log("x-koordinat" + results.y);
   };
 
   const handleInput = (evt) => {
@@ -158,16 +152,16 @@ function App() {
           <Rectangle bounds={rectangle4} pathOptions={purpleOptions} />
         </MapContainer>
 
-      <div style={{ marginTop: 25 }}>
-        <form onSubmit={handleSubmit} onChange={handleInput}>
-          <input id="position" type="text" value={place.position} />
-          <br />
-          <button>Submit</button>
-        </form>
+        <div style={{ marginTop: 25 }}>
+          <form onSubmit={handleSubmit} onChange={handleInput}>
+            <input id="position" type="text" value={place.position} />
+            <br />
+            <button>Submit</button>
+          </form>
+        </div>
       </div>
-
-      </div>
-      );
+    </div>
+  );
 }
 
 export default App;
