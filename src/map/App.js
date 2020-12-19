@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { MapContainer, TileLayer, Rectangle } from "react-leaflet";
 //import L from "leaflet";
 import { OpenStreetMapProvider } from "leaflet-geosearch";
-import Search from "./Search";
+//import Search from "./Search";
 import "./App.css";
 
 function App() {
@@ -25,41 +25,55 @@ function App() {
 
   //const handleInput = (evt) => {};
 
-  /*const handleSubmit = (evt) => {
+  const handleSubmit = (evt) => {
     evt.preventDefault();
-    //console.log(value);
-    console.log("hej1");
 
-    const provider = new OpenStreetMapProvider();
-    const results = provider.search({ query: "virum" });
+    console.log("from handleSubmit");
 
-    place.xAxis = results.x;
-    place.yAxis = results.y;
-
-    console.log("x-koordinat" + results.x);
-    console.log("x-koordinat" + results.y);
-  };
-
-  const handleInput = (evt) => {
     const target = evt.target;
     const id = target.id;
     const value = target.value;
 
+    const provider = new OpenStreetMapProvider();
+    const results = provider.search({ query: "Virum" });
+
+    console.log("x-koordinat" + results.x);
+    console.log("y-koordinat" + results.y);
+
+    place.xAxis = results.x;
+    place.yAxis = results.y;
+
     place[id] = value;
     setPlace({ ...place });
-  };*/
 
-  const provider = new OpenStreetMapProvider();
+    /*
+    const target = evt.target;
+    const id = target.id;
+    const value = target.value;*/
+    //console.log(value);
+    console.log("hej1");
 
-  const form = document.querySelector("form");
-  const input = form.querySelector('input[type="text"]');
+    //console.log("x-koordinat" + results.x);
+    //console.log("x-koordinat" + results.y);
+  };
 
-  form.addEventListener("submit", async (event) => {
-    event.preventDefault();
+  const handleInput = (evt) => {
+    evt.preventDefault();
 
-    const results = await provider.search({ query: input.value });
-    console.log(results); // » [{}, {}, {}, ...]
-  });
+    console.log("from handleInput");
+
+    const target = evt.target;
+    const id = target.id;
+    const value = target.value;
+
+    //console.log(results);
+
+    //place.xAxis = results.x;
+    //place.yAxis = results.y;
+
+    place[id] = value;
+    setPlace({ ...place });
+  };
 
   const changeTileSizeUp = (evt) => {
     //const target = evt.target;
@@ -137,7 +151,6 @@ function App() {
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             //attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           />
-          <Search />
 
           <Rectangle bounds={rectangle1} pathOptions={purpleOptions} />
           <Rectangle bounds={rectangle2} pathOptions={purpleOptions} />
@@ -147,15 +160,10 @@ function App() {
       </div>
 
       <div style={{ marginTop: 25 }}>
-        <form>
-          <input
-            id="position"
-            type="text"
-            value={place.position}
-            onChange={handleInput}
-          />
+        <form onSubmit={handleSubmit} onChange={handleInput}>
+          <input id="position" type="text" value={place.position} />
           <br />
-          <button onSubmit={handleSubmit}>Submit</button>
+          <button>Submit</button>
         </form>
       </div>
     </div>
