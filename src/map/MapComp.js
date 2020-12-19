@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+/*import React, { Component } from "react";
 import L from "leaflet";
 import * as ELG from "esri-leaflet-geocoder";
 import { Map, MapContainer, TileLayer } from "react-leaflet";
@@ -50,3 +50,4 @@ class MapComp extends Component {
 }
 
 export default MapComp;
+/*/

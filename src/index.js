@@ -27,7 +27,7 @@ import Search from "./map/Search";
 const target = document.querySelector("#root");
 ReactDOM.render(
   <React.StrictMode>
-    <MapComp />
+    <App />
   </React.StrictMode>,
   target
 );

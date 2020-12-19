@@ -10,7 +10,7 @@ function App() {
   //var zoom = 2;
 
   const initialState = {
-    xAxis: 55.676098,
+    xAxis: 55.672098,
     yAxis: 12.568337,
     zoom: 12,
     maxZoom: 18,
@@ -25,30 +25,57 @@ function App() {
 
   //const handleInput = (evt) => {};
 
-  /*const handleSubmit = (evt) => {
+  const provider = new OpenStreetMapProvider();
+
+  const handleSubmit = async (evt) => {
     evt.preventDefault();
+    //const target = evt.target;
+    //const id = target.id;
+    //const value = target.value;
     //console.log(value);
     console.log("hej1");
 
-    const provider = new OpenStreetMapProvider();
-    const results = provider.search({ query: "virum" });
+    const results = await provider.search({ query: "Virum" });
+
+    console.log(results);
 
     place.xAxis = results.x;
     place.yAxis = results.y;
 
-    console.log("x-koordinat" + results.x);
-    console.log("x-koordinat" + results.y);
+    console.log(results.x);
+    console.log(results.y);
+
+    //place[id] = value;
+    //setPlace({ ...place });
+
+    console.log("x-koordinat" + place.xAxis);
+    console.log("y-koordinat" + place.yAxis);
   };
 
-  const handleInput = (evt) => {
+  const handleInput = async (evt) => {
+    //evt.preventDefault();
     const target = evt.target;
     const id = target.id;
     const value = target.value;
 
-    place[id] = value;
-    setPlace({ ...place });
-  };*/
+    console.log("hej2");
+    console.log("value: " + value);
 
+    //const results = await provider.search({ query: "virum" });
+    /*
+    console.log(results);
+
+    place.xAxis = results.x;
+    place.yAxis = results.y;
+
+    console.log(results.x);
+    console.log(results.y);
+
+    place[id] = value;
+    setPlace({ ...place });*/
+  };
+
+  /*
   const provider = new OpenStreetMapProvider();
 
   const form = document.querySelector("form");
@@ -59,7 +86,7 @@ function App() {
 
     const results = await provider.search({ query: input.value });
     console.log(results); // » [{}, {}, {}, ...]
-  });
+  });*/
 
   const changeTileSizeUp = (evt) => {
     //const target = evt.target;
@@ -137,16 +164,29 @@ function App() {
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             //attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           />
-          <Search />
 
           <Rectangle bounds={rectangle1} pathOptions={purpleOptions} />
           <Rectangle bounds={rectangle2} pathOptions={purpleOptions} />
           <Rectangle bounds={rectangle3} pathOptions={purpleOptions} />
           <Rectangle bounds={rectangle4} pathOptions={purpleOptions} />
         </MapContainer>
-      </div>
 
-      <div style={{ marginTop: 25 }}>
+        <div style={{ marginTop: 25 }}>
+          <form>
+            <input
+              id="position"
+              type="text"
+              value={place.position}
+              onChange={handleInput}
+            />
+            <br />
+            <button onSubmit={handleSubmit}>Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  ); //<p>{JSON.stringify(place)}</p>
+  /**      <div style={{ marginTop: 25 }}>
         <form>
           <input
             id="position"
@@ -157,9 +197,7 @@ function App() {
           <br />
           <button onSubmit={handleSubmit}>Submit</button>
         </form>
-      </div>
-    </div>
-  ); //<p>{JSON.stringify(place)}</p>
+      </div> */
 }
 
 export default App;
