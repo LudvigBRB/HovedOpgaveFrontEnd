@@ -10,7 +10,7 @@ function App() {
   //var zoom = 2;
 
   const initialState = {
-    xAxis: 55.676098,
+    xAxis: 55.672098,
     yAxis: 12.568337,
     zoom: 12,
     maxZoom: 18,
@@ -157,7 +157,6 @@ function App() {
           <Rectangle bounds={rectangle3} pathOptions={purpleOptions} />
           <Rectangle bounds={rectangle4} pathOptions={purpleOptions} />
         </MapContainer>
-      </div>
 
       <div style={{ marginTop: 25 }}>
         <form onSubmit={handleSubmit} onChange={handleInput}>
@@ -166,46 +165,9 @@ function App() {
           <button>Submit</button>
         </form>
       </div>
-    </div>
-  ); //<p>{JSON.stringify(place)}</p>
+
+      </div>
+      );
 }
 
 export default App;
-
-/*
-function App() {
-  return (
-    <MapContainer
-      className="markercluster-map"
-      center={[55.676098, 12.568337]}
-      zoom={12}
-      maxZoom={18}
-    >
-      <TileLayer
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-      />
-    </MapContainer>
-  );
-}
-
-export default App;
-
-/*
-<div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-*/
