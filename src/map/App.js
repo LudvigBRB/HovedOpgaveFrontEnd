@@ -2,7 +2,8 @@ import React, { useState } from "react";
 //import logo from "./logo.svg";
 import { MapContainer, TileLayer, Rectangle } from "react-leaflet";
 //import L from "leaflet";
-import { OpenStreetMapProvider } from "leaflet-geosearch";
+import { OpenStreetMapProvider, GeoSearchControl } from "leaflet-geosearch";
+import L from "leaflet";
 //import Search from "./Search";
 import "./App.css";
 
@@ -25,6 +26,15 @@ function App() {
 
   //const handleInput = (evt) => {};
 
+  const searchTest = {
+    x: 54.342,
+    y: 10.2456,
+  };
+
+  const provider = new OpenStreetMapProvider();
+  //const map = new L.Map("map");
+  //map.addControl(searchControl);
+
   const handleSubmit = async (evt) => {
     evt.preventDefault();
 
@@ -34,21 +44,25 @@ function App() {
     const id = target.id;
     const value = target.value;
 
-    const provider = new OpenStreetMapProvider();
     const results = await provider.search({ query: "Virum" });
 
     console.log("result is " + results);
 
-    console.log("x-koordinat" + results.x);
-    console.log("y-koordinat" + results.y);
+    console.log("x-koordinat" + searchTest.x);
+    console.log("y-koordinat" + searchTest.y);
 
-    place.xAxis = results.x;
-    place.yAxis = results.y;
+    //place.xAxis = results.x;
+    //place.yAxis = results.y;
+    //place["xAxis"] = searchTest.x;
+    //place["yAxis"] = searchTest.y;
 
-    place[id] = value;
+    place.xAxis = searchTest.x;
+    place.yAxis = searchTest.y;
+
+    //place[id] = value;
     setPlace({ ...place });
 
-    console.log("hej1");
+    console.log(place.xAxis);
   };
 
   const handleInput = (evt) => {
