@@ -8,8 +8,8 @@ function ScreenShot() {
 
     button1.addEventListener("mouseup", logMouseButton);
 
-    let button2 = document.querySelector("#button2");
-    button2.addEventListener("mouseup", logMouseButton);
+    //let button2 = document.querySelector("#button2");
+    //button2.addEventListener("mouseup", logMouseButton);
 
     let log = document.querySelector("#log");
 
@@ -52,10 +52,7 @@ function ScreenShot() {
   return (
     <div>
       <button id="button1" onContextMenu="event.preventDefault();">
-        Click here with your mouse...
-      </button>
-      <button id="button2" oncontextmenu="event.preventDefault();">
-        Click here with your mouse...
+        Print map
       </button>
       <p id="log"></p>
     </div>

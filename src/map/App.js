@@ -6,6 +6,7 @@ import { OpenStreetMapProvider, GeoSearchControl } from "leaflet-geosearch";
 import L from "leaflet";
 //import Search from "./Search";
 import "./App.css";
+import ScreenShot from "./ScreenShot";
 
 function App() {
   //var zoom = 2;
@@ -145,6 +146,8 @@ function App() {
 
         <button onClick={changeTileSizeDown}>Large map</button>
       </div>
+
+      <ScreenShot />
 
       <div className="map-container">
         <MapContainer

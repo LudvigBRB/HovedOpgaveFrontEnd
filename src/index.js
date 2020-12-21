@@ -8,6 +8,7 @@ import * as serviceWorker from "./serviceWorker";
 //import Search from "./map/Search";
 //import Function from "./functions";
 //import apiFacade from "./apiFacade";
+import Map from "./map/MapL";
 
 //ReactDOM.render(<App />, document.getElementById("root"));
 
@@ -27,7 +28,7 @@ import * as serviceWorker from "./serviceWorker";
 const target = document.querySelector("#root");
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Map />
   </React.StrictMode>,
   target
 );
