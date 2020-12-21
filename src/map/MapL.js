@@ -14,7 +14,7 @@ const searchControl = new GeoSearchControl({
 function Map() {
   React.useEffect(() => {
     // create map
-    L.map("map", {
+    const tMap = L.map("map", {
       center: [49.8419, 24.0315],
       zoom: 16,
       layers: [
@@ -24,7 +24,12 @@ function Map() {
         }),
       ],
     });
+
+    tMap.addControl(searchControl);
   }, []);
+
+  //tMap.addControl(searchControl);
+
   return <div id="map"></div>;
 }
 
