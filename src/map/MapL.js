@@ -1,6 +1,7 @@
 import React from "react";
 import L from "leaflet";
 import { GeoSearchControl, OpenStreetMapProvider } from "leaflet-geosearch";
+//import leafletImage from "leaflet-image";
 
 const provider = new OpenStreetMapProvider();
 
@@ -26,6 +27,28 @@ function Map() {
     });
 
     tMap.addControl(searchControl);
+
+    L.easyPrint({
+      title: "My awesome print button",
+      position: "bottomright",
+      sizeModes: ["A4Portrait", "A4Landscape"],
+    }).addTo(tMap);
+
+    /*leafletImage(tMap, function (err, canvas) {
+      // now you have canvas
+      // example thing to do with that canvas:
+
+      const x = 500;
+      const y = 600;
+
+      var img = document.createElement("img");
+      var dimensions = tMap.getSize();
+      img.width = dimensions.x;
+      img.height = dimensions.y;
+      img.src = canvas.toDataURL();
+      document.getElementById("images").innerHTML = "";
+      document.getElementById("images").appendChild(img);
+    });*/
   }, []);
 
   //tMap.addControl(searchControl);
