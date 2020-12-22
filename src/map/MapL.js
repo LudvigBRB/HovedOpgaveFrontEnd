@@ -33,6 +33,7 @@ function Map() {
       title: "My awesome print button",
       position: "bottomright",
       sizeModes: ["A4Portrait", "A4Landscape"],
+      exportOnly: true,
     }).addTo(tMap);
 
     /*leafletImage(tMap, function (err, canvas) {
