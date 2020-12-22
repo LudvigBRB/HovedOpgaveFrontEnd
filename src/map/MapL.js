@@ -2,6 +2,7 @@ import React from "react";
 import L from "leaflet";
 import { GeoSearchControl, OpenStreetMapProvider } from "leaflet-geosearch";
 //import leafletImage from "leaflet-image";
+import easyPrint from "leaflet-easyprint";
 
 const provider = new OpenStreetMapProvider();
 
