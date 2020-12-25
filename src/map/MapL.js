@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import L from "leaflet";
 import { GeoSearchControl, OpenStreetMapProvider } from "leaflet-geosearch";
 //import leafletImage from "leaflet-image";
@@ -14,6 +14,18 @@ const searchControl = new GeoSearchControl({
 //map.addControl(searchControl);
 
 function Map() {
+  const initialState = {
+    xAxis: 55.672098,
+    yAxis: 12.568337,
+    zoom: 12,
+    maxZoom: 18,
+    position: "",
+    width: 1000,
+    height: 10000,
+  };
+
+  const [place, setPlace] = useState(initialState);
+
   React.useEffect(() => {
     var map = L.map("map").setView([43.5, -89.5], 5);
     L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png", {
@@ -71,7 +83,14 @@ function Map() {
 
   //tMap.addControl(searchControl);
 
-  return <div id="map"></div>;
+  return (
+    <div>
+      <button onClick="Action()">Small Map</button>
+      <button onClick="Action()">Large Map</button>
+      <button onClick="Action()">Download</button>
+      <div id="map"></div>
+    </div>
+  );
 }
 
 export default Map;
