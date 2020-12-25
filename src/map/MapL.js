@@ -3,6 +3,7 @@ import L from "leaflet";
 import { GeoSearchControl, OpenStreetMapProvider } from "leaflet-geosearch";
 //import leafletImage from "leaflet-image";
 import easyPrint from "leaflet-easyprint";
+import apiFacade from "./ApiFacade";
 
 const provider = new OpenStreetMapProvider();
 
@@ -14,8 +15,32 @@ const searchControl = new GeoSearchControl({
 //map.addControl(searchControl);
 
 function Map() {
+  const changeTileSizeUp = (evt) => {
+    //const target = evt.target;
+    //const id = target.id;
+    //const value = target.value;
+    evt.preventDefault();
+
+    place.width = 500;
+    setPlace({ ...place });
+    //console.log(place.width);
+  };
+
+  const changeTileSizeDown = (evt) => {
+    evt.preventDefault();
+
+    place.width = 1000;
+    setPlace({ ...place });
+    //console.log(place.width);
+  };
+
+  const printSome = (evt) => {
+    //console.log("hej med dig");
+    apiFacade.getDownload();
+  };
+
   const initialState = {
-    xAxis: 55.672098,
+    xAxis: 55.972998,
     yAxis: 12.568337,
     zoom: 12,
     maxZoom: 18,
@@ -85,11 +110,11 @@ function Map() {
 
   return (
     <div>
-      <button onClick="MakeBig()">Small Map</button>
-      <button onClick="Action()">Large Map</button>
+      <button onClick={changeTileSizeUp}>Small Map</button>
+      <button onClick={changeTileSizeDown}>Large Map</button>
       <br></br>
       <br></br>
-      <button onClick="Action()">Download</button>
+      <button onClick={printSome}>Download</button>
       <div id="map"></div>
     </div>
   );
