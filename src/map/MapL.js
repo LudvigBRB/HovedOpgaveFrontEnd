@@ -27,7 +27,7 @@ function Map() {
   const [place, setPlace] = useState(initialState);
 
   React.useEffect(() => {
-    var map = L.map("map").setView([43.5, -89.5], 5);
+    var map = L.map("map").setView([place.xAxis, place.yAxis], place.zoom);
     L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png", {
       attribution:
         'Map tiles &copy;  <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
@@ -85,8 +85,10 @@ function Map() {
 
   return (
     <div>
-      <button onClick="Action()">Small Map</button>
+      <button onClick="MakeBig()">Small Map</button>
       <button onClick="Action()">Large Map</button>
+      <br></br>
+      <br></br>
       <button onClick="Action()">Download</button>
       <div id="map"></div>
     </div>
