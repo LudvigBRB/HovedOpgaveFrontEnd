@@ -15,7 +15,23 @@ const searchControl = new GeoSearchControl({
 
 function Map() {
   React.useEffect(() => {
+    var map = L.map("map").setView([43.5, -89.5], 5);
+    L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png", {
+      attribution:
+        'Map tiles &copy;  <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+    }).addTo(map);
+
+    map.addControl(searchControl);
+
+    L.easyPrint({
+      title: "My awesome print button",
+      position: "bottomright",
+      sizeModes: ["A4Portrait", "A4Landscape"],
+      exportOnly: true,
+    }).addTo(map);
+
     // create map
+    /*
     const tMap = L.map("map", {
       center: [49.8419, 24.0315],
       zoom: 16,
