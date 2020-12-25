@@ -1,4 +1,4 @@
-let URL = "http://46.101.217.16:4000/";
+let URL = "http://localhost:8080/jp/api/";
 
 function handleHttpErrors(res) {
   if (!res.ok) {
@@ -9,7 +9,7 @@ function handleHttpErrors(res) {
 
 function apiFacade() {
   function getDownload() {
-    fetch(URL + "/recipe/" + rec).then(handleHttpErrors);
+    fetch(URL + "/dl/").then(handleHttpErrors);
   }
 
   return {
