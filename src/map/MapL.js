@@ -29,13 +29,16 @@ function Map() {
   const changeTileSizeDown = (evt) => {
     evt.preventDefault();
 
+    console.log("changetilesizedown");
+
     place.width = 1000;
     setPlace({ ...place });
     //console.log(place.width);
   };
 
   const printSome = (evt) => {
-    //console.log("hej med dig");
+    //evt.preventDefault();
+    console.log("hej med dig");
     apiFacade.getDownload();
   };
 

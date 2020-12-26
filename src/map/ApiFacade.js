@@ -9,7 +9,8 @@ function handleHttpErrors(res) {
 
 function apiFacade() {
   function getDownload() {
-    fetch(URL + "/dl/").then(handleHttpErrors);
+    console.log("nu downloader de");
+    fetch(URL + "/get/").then(handleHttpErrors);
   }
 
   return {
@@ -17,5 +18,5 @@ function apiFacade() {
   };
 }
 
-//const returnValue = apiFacade();
-export default apiFacade;
+const returnValue = apiFacade();
+export default returnValue;
