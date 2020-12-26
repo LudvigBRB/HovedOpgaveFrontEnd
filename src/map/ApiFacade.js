@@ -10,7 +10,7 @@ function handleHttpErrors(res) {
 function apiFacade() {
   function getDownload() {
     console.log("nu downloader de");
-    fetch(URL + "/get/").then(handleHttpErrors);
+    fetch(URL + "/dl/").then(handleHttpErrors);
   }
 
   return {

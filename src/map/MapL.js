@@ -15,6 +15,9 @@ const searchControl = new GeoSearchControl({
 //map.addControl(searchControl);
 
 function Map() {
+  
+
+
   const changeTileSizeUp = (evt) => {
     //const target = evt.target;
     //const id = target.id;
@@ -59,6 +62,7 @@ function Map() {
     L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png", {
       attribution:
         'Map tiles &copy;  <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+      width: 112,
     }).addTo(map);
 
     map.addControl(searchControl);
@@ -113,6 +117,11 @@ function Map() {
 
   return (
     <div>
+      <style>
+.map {
+  width 80%;
+}
+</style>
       <button onClick={changeTileSizeUp}>Small Map</button>
       <button onClick={changeTileSizeDown}>Large Map</button>
       <br></br>
