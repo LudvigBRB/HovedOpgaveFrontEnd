@@ -4,6 +4,7 @@ import { GeoSearchControl, OpenStreetMapProvider } from "leaflet-geosearch";
 //import leafletImage from "leaflet-image";
 import easyPrint from "leaflet-easyprint";
 import apiFacade from "./ApiFacade";
+import styled from "styled-components";
 
 const provider = new OpenStreetMapProvider();
 
@@ -15,16 +16,13 @@ const searchControl = new GeoSearchControl({
 //map.addControl(searchControl);
 
 function Map() {
-  
-
-
   const changeTileSizeUp = (evt) => {
     //const target = evt.target;
     //const id = target.id;
     //const value = target.value;
     evt.preventDefault();
 
-    place.width = 500;
+    place.width = 100;
     setPlace({ ...place });
     //console.log(place.width);
   };
@@ -34,7 +32,7 @@ function Map() {
 
     console.log("changetilesizedown");
 
-    place.width = 1000;
+    place.width = 50;
     setPlace({ ...place });
     //console.log(place.width);
   };
@@ -51,11 +49,15 @@ function Map() {
     zoom: 12,
     maxZoom: 18,
     position: "",
-    width: 1000,
-    height: 10000,
+    width: 100,
+    height: 100,
   };
 
   const [place, setPlace] = useState(initialState);
+
+  const StyledDiv = styled.div({
+    width: place.width + "%",
+  });
 
   React.useEffect(() => {
     var map = L.map("map").setView([place.xAxis, place.yAxis], place.zoom);
@@ -116,19 +118,14 @@ function Map() {
   //tMap.addControl(searchControl);
 
   return (
-    <div>
-      <style>
-.map {
-  width 80%;
-}
-</style>
+    <StyledDiv>
       <button onClick={changeTileSizeUp}>Small Map</button>
       <button onClick={changeTileSizeDown}>Large Map</button>
       <br></br>
       <br></br>
       <button onClick={printSome}>Download</button>
       <div id="map"></div>
-    </div>
+    </StyledDiv>
   );
 }
 
