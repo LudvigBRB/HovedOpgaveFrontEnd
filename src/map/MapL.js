@@ -80,12 +80,13 @@ function Map() {
 
   //tMap.addControl(searchControl);
 
-  return (
-    <StyledDiv>
-      <button onClick={changeTileSizeUp}>Small Map</button>
+  /**      <button onClick={changeTileSizeUp}>Small Map</button>
       <button onClick={changeTileSizeDown}>Large Map</button>
       <br></br>
-      <br></br>
+      <br></br> */
+
+  return (
+    <StyledDiv>
       <button onClick={printSome}>Download</button>
       <div id="map"></div>
     </StyledDiv>
