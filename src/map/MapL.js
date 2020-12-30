@@ -61,6 +61,7 @@ function Map() {
 
   React.useEffect(() => {
     var map = L.map("map").setView([place.xAxis, place.yAxis], place.zoom);
+
     L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png", {
       attribution:
         'Map tiles &copy;  <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
@@ -75,9 +76,26 @@ function Map() {
       sizeModes: ["A4Portrait", "A4Landscape"],
       exportOnly: true,
     }).addTo(map);
+  }, []);
 
-    // create map
-    /*
+  //tMap.addControl(searchControl);
+
+  return (
+    <StyledDiv>
+      <button onClick={changeTileSizeUp}>Small Map</button>
+      <button onClick={changeTileSizeDown}>Large Map</button>
+      <br></br>
+      <br></br>
+      <button onClick={printSome}>Download</button>
+      <div id="map"></div>
+    </StyledDiv>
+  );
+}
+
+export default Map;
+
+// create map
+/*
     const tMap = L.map("map", {
       center: [49.8419, 24.0315],
       zoom: 16,
@@ -113,20 +131,3 @@ function Map() {
       document.getElementById("images").innerHTML = "";
       document.getElementById("images").appendChild(img);
     });*/
-  }, []);
-
-  //tMap.addControl(searchControl);
-
-  return (
-    <StyledDiv>
-      <button onClick={changeTileSizeUp}>Small Map</button>
-      <button onClick={changeTileSizeDown}>Large Map</button>
-      <br></br>
-      <br></br>
-      <button onClick={printSome}>Download</button>
-      <div id="map"></div>
-    </StyledDiv>
-  );
-}
-
-export default Map;

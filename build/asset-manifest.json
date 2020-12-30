@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.fcbd9cdd.css",
-    "main.js": "/static/js/main.16df52fd.js",
-    "main.js.map": "/static/js/main.16df52fd.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.7f2fef545b5d7a0c097a8f95b74b001f.js": "/precache-manifest.7f2fef545b5d7a0c097a8f95b74b001f.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/main.fcbd9cdd.css.map": "/static/css/main.fcbd9cdd.css.map",
-    "static/js/main.16df52fd.js.LICENSE.txt": "/static/js/main.16df52fd.js.LICENSE.txt"
+    "main.css": "/wp-content/themes/react/static/css/main.fcbd9cdd.css",
+    "main.js": "/wp-content/themes/react/static/js/main.af80a609.js",
+    "main.js.map": "/wp-content/themes/react/static/js/main.af80a609.js.map",
+    "index.html": "/wp-content/themes/react/index.html",
+    "precache-manifest.cf1845bf040f2fd1610f5f7050886aca.js": "/wp-content/themes/react/precache-manifest.cf1845bf040f2fd1610f5f7050886aca.js",
+    "service-worker.js": "/wp-content/themes/react/service-worker.js",
+    "static/css/main.fcbd9cdd.css.map": "/wp-content/themes/react/static/css/main.fcbd9cdd.css.map",
+    "static/js/main.af80a609.js.LICENSE.txt": "/wp-content/themes/react/static/js/main.af80a609.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/css/main.fcbd9cdd.css",
-    "static/js/main.16df52fd.js"
+    "static/js/main.af80a609.js"
   ]
 }
